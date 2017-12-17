@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- 数据库驱动包位置 -->
+	<classPathEntry
+		location="D:\apache-maven-3.5.0-bin\maven\mysql\mysql-connector-java\5.1.6\mysql-connector-java-5.1.6.jar" />
+	<context id="context1">
+		<commentGenerator>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!-- 数据库链接URL、用户名、密码 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/market" userId="qiao"
+			password="123456" />
+		<!-- 生成模型的包名和位置 -->
+		<javaModelGenerator targetPackage="com.mi.qiao.entity"
+			targetProject="Spring_Boot/src/main/java" />
+		<!-- 生成的映射文件报名和位置 -->
+		<sqlMapGenerator targetPackage="com.mi.qiao.mapper"
+			targetProject="Spring_Boot/src/main/java" />
+		<!-- 生成DAO的包名和位置 -->
+		<javaClientGenerator targetPackage="com.mi.qiao.dao"
+			targetProject="Spring_Boot/src/main/java" type="XMLMAPPER" />
+		<!-- 要生成的那些表(更改tableName 和domainObjectName 就可以了) -->
+		<table schema="Spring_Boot" tableName="users" domainObjectName="User"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<columnOverride column="id" property="id" />
+			<columnOverride column="username" property="username" />
+			<columnOverride column="password" property="password" />
+			<columnOverride column="realName" property="realName" />
+			<columnOverride column="sex" property="sex" />
+		</table>
+	</context>
+</generatorConfiguration>

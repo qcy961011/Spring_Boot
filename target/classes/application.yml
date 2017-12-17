@@ -1,0 +1,26 @@
+mybatis:  
+   type-aliases-package: com.mi.qiao.entity
+   config-locations: classpath:mybatis-config.xml
+   mapper-locations: classpath:com/mi/qiao/mapper/*.xml
+   
+spring: 
+  datasource: 
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/market?useUnicode=true&characterEncoding=utf8
+    username: qiao
+    password: 123456
+  mvc: 
+    view: 
+      prefix: /
+      suffix: .jsp
+  thymeleaf:
+    prefix: /templates/  
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    content-type: text/html; charset=utf-8
+    # 缓存关闭
+    cache: false 
+    
+    
+      

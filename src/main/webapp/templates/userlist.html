@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function getAll() {
+		var name = document.getElementsByName("uid").length;
+		if (name == 0) {
+			window.location.href = '/action/userlist';
+		}
+	}
+</script>
+</head>
+<body onload="getall()">
+	<table width="90%" border="1">
+		<tr>
+			<td><input type="checkbox" value=""></td>
+			<td>id</td>
+			<td>username</td>
+			<td>password</td>
+			<td>realName</td>
+			<td>sex</td>
+		</tr>
+		<tr th:each="user : ${userList}">
+			<td><input type="checkbox" th:value="${user.id}"></td>
+			<td th:text=${user.username}>${user.username}</td>
+			<td th:text=${user.password}>${user.password}</td>
+			<td th:text=${user.realName}>${user.realName}</td>
+			<td th:text=${user.sex}>${user.sex}</td>
+		</tr>
+
+	</table>
+</body>
+</html>
