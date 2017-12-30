@@ -3,6 +3,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
+
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/docs.css">
+
 <script type="text/javascript">
 	function getAll() {
 		var name = document.getElementsByName("uid").length;
@@ -13,7 +17,7 @@
 </script>
 </head>
 <body onload="getall()">
-	<table width="90%" border="1">
+<!-- 	<table width="90%" border="1">
 		<tr>
 			<td><input type="checkbox" value=""></td>
 			<td>id</td>
@@ -22,14 +26,35 @@
 			<td>realName</td>
 			<td>sex</td>
 		</tr>
-		<tr th:each="user : ${userList}">
+
+		<tr th:each="user : ${userlist}">
 			<td><input type="checkbox" th:value="${user.id}"></td>
 			<td th:text=${user.username}>${user.username}</td>
 			<td th:text=${user.password}>${user.password}</td>
 			<td th:text=${user.realName}>${user.realName}</td>
 			<td th:text=${user.sex}>${user.sex}</td>
 		</tr>
+	</table> -->
+	<div class="row">
+		<div class="col-md-1">
+			<input type="checkbox" value="">
+		</div>
+		<div class="col-md-2">id</div>
+		<div class="col-md-2">username</div>
+		<div class="col-md-2">password</div>
+		<div class="col-md-2">realname</div>
+		<div class="col-md-2">sex</div>
+	</div>
+	<div class="row" th:each="user : ${userlist}">
+		<div class="col-md-1">
+			<input type="checkbox" th:value="${user.id}">
+		</div>
+		<div class="col-md-2" th:text=${user.id}>${user.id}</div>
+		<div class="col-md-2" th:text=${user.username}>${user.username}</div>
+		<div class="col-md-2" th:text=${user.password}>${user.password}</div>
+		<div class="col-md-2" th:text=${user.realName}>${user.realname}</div>
+		<div class="col-md-2" th:text=${user.sex}>${user.sex}</div>
+	</div>
 
-	</table>
 </body>
 </html>

@@ -9,10 +9,6 @@ spring:
     url: jdbc:mysql://localhost:3306/market?useUnicode=true&characterEncoding=utf8
     username: qiao
     password: 123456
-  mvc: 
-    view: 
-      prefix: /
-      suffix: .jsp
   thymeleaf:
     prefix: /templates/  
     suffix: .html
@@ -21,6 +17,7 @@ spring:
     content-type: text/html; charset=utf-8
     # 缓存关闭
     cache: false 
+    
     
     
       

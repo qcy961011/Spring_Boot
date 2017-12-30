@@ -18,6 +18,13 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mi.qiao.Service.UserService;
 import com.mi.qiao.entity.User;
 
+
+/**
+ * 
+ * 
+ * @author qiao
+ * 这个类没有实际的作用，就是看看而已，因为MVC的对应配置文件已被删除，现在只能使用模板功能
+ */
 @RestController
 @RequestMapping("/action")
 public class TemplatesController {
