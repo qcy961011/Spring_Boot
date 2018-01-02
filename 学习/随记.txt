@@ -1,0 +1,3 @@
+
+给表添加主键列
+alter table bigdatastandarddata.citycorre add COLUMN id INT NOT NULL AUTO_INCREMENT PRIMARY KEY first;

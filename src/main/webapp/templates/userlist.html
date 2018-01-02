@@ -9,15 +9,22 @@
 
 <script type="text/javascript">
 	function getAll() {
-		var name = document.getElementsByName("uid").length;
-		if (name == 0) {
-			window.location.href = '/action/userlist';
+		var name = document.getElementsByName("uid")[1];
+		if (name == null) {
+			window.location.assign("/qiao/userlist");
+		}
+	}
+
+	function cheak() {
+		var ch = document.getElementById("cheak");
+		if (ch.value == null){
+			ch.style.display=none;
 		}
 	}
 </script>
 </head>
-<body onload="getall()">
-<!-- 	<table width="90%" border="1">
+<body onload="getAll()">
+	<!-- 	<table width="90%" border="1">
 		<tr>
 			<td><input type="checkbox" value=""></td>
 			<td>id</td>
@@ -47,13 +54,13 @@
 	</div>
 	<div class="row" th:each="user : ${userlist}">
 		<div class="col-md-1">
-			<input type="checkbox" th:value="${user.id}">
+			<input type="checkbox" th:value="${user.id}" id="cheak">
 		</div>
-		<div class="col-md-2" th:text=${user.id}>${user.id}</div>
-		<div class="col-md-2" th:text=${user.username}>${user.username}</div>
-		<div class="col-md-2" th:text=${user.password}>${user.password}</div>
-		<div class="col-md-2" th:text=${user.realName}>${user.realname}</div>
-		<div class="col-md-2" th:text=${user.sex}>${user.sex}</div>
+		<div class="col-md-2" th:text=${user.id} name="uid"></div>
+		<div class="col-md-2" th:text=${user.username}></div>
+		<div class="col-md-2" th:text=${user.password}></div>
+		<div class="col-md-2" th:text=${user.realName}></div>
+		<div class="col-md-2" th:text=${user.sex}></div>
 	</div>
 
 </body>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>后台登录</title>
+<meta name="author" content="DeathGhost" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<style>
+body {
+	height: 100%;
+	background: #16a085;
+	overflow: hidden;
+}
+
+canvas {
+	z-index: -1;
+	position: absolute;
+}
+</style>
+<script src="js/jquery.js"></script>
+<script src="js/verificationNumbers.js"></script>
+<script src="js/Particleground.js"></script>
+<link type="text/css" rel="stylesheet" href="css/tipso.min.css">
+<style type="text/css">
+.tipbox .inner {
+	padding: 0px;
+	text-align: center;
+}
+</style>
+<script>
+	$(document).ready(function() {
+		//粒子背景特效
+		$('body').particleground({
+			dotColor : '#5cbdaa',
+			lineColor : '#5cbdaa'
+		});
+
+	});
+</script>
+<style type="text/css"></style>
+</head>
+<body>
+	<form action="/market/LoginServlet?type=save" method="post">
+		<div class="tipbox">
+			<div class="inner">
+				<dl class="admin_login">
+					<dt>
+						<strong>站点后台管理系统</strong> <em>Management System</em>
+					</dt>
+					<dd class="user_icon">
+						<input type="text" placeholder="账号" name="username" id="username"
+							data-tipso="用户名重复，请重新输入" onblur="cheakName()" class="login_txtbx" />
+					</dd>
+					<dd class="pwd_icon">
+						<input type="password" placeholder="密码" name="password"
+							class="login_txtbx" />
+					</dd>
+					<dd class="pwd_icon">
+						<input type="password" placeholder="请再次输入密码" name="redpass"
+							class="login_txtbx" />
+					</dd>
+					<dd class="val_icon">
+						<input type="text" placeholder="真实姓名" name="realName"
+							class="login_txtbx" />
+					</dd>
+					<dd class="val_icon">
+						<input type="text" placeholder="联系电话" name="phone"
+							class="login_txtbx" />
+					</dd>
+					<dd class="val_icon">
+						<input type="text" placeholder="收件地址" name="address"
+							class="login_txtbx" />
+					</dd>
+					<dd class="val_icon"
+						style="text-align: left; font-size: 14px; height: 26px; line-height: 26px; padding: 8px 5%; width: 90%; ext-indent: 2em; border: none; background: #5cbdaa;">
+						&nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="sex"
+							value="1" />男<input type="radio" name="sex" value="2" />女
+					</dd>
+					<dd>
+						<input type="submit" value="立即注册" class="submit_btn" id="sub" />
+					</dd>
+					<dd>
+						<p>© 2017-2018 RewardDisplaySpell 版权所有</p>
+						<p>京B1-20170813-1</p>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</form>
+</body>
+<script type="text/javascript" src="js/tipso.min.js"></script>
+<script>
+	function name123() {
+		pas3 = document.getElementsByName('username')[0];
+		if (pas3.value == '') {
+			alert('请输入您的账号');
+			return false;
+		}
+		return true;
+	}
+
+	function look() {
+		pas1 = document.getElementsByName('password')[0];
+		if (pas1.value.length < 6) {
+			alert('密码长度必须大于六位，请重新输入！');
+			pas1.value = '';
+			return false;
+		}
+		return true;
+
+	}
+
+	function red() {
+		pas1 = document.getElementsByName('password')[0];
+		pas2 = document.getElementsByName('redpass')[0];
+		if (!(pas1.value == pas2.value)) {
+			alert('两次输入的密码不一致，请重新输入');
+			pas2.value = '';
+			return false;
+		}
+		return true;
+
+	}
+
+	function redname123() {
+		pas5 = document.getElementsByName('realName')[0];
+		if (pas5.value == "") {
+			alert("请输入您的真实姓名");
+			return false;
+		}
+		return true;
+	}
+
+	function phone123() {
+		pas4 = document.getElementsByName('phone')[0];
+		if (pas4.value.length != 11) {
+			alert('请输入正确的手机号');
+			return false;
+		}
+		return true;
+	}
+
+	function address() {
+		pas6 = document.getElementsByName("address")[0];
+		if (pas6.value.length == 0) {
+			alert('请输入正确的地址');
+			return false;
+		}
+
+		return true;
+	}
+	function sex() {
+		pas7 = document.getElementsByName('sex');
+		if (pas7.value == null) {
+			alert('请选择您的性别');
+			return false;
+		}
+		return true;
+	}
+
+	function cheakName() {
+		var username = document.getElementsByName('username')[0];
+		var url = "/market/LoginServlet?type=checkName&username=" + username.value;
+		$.ajax({
+			url : url,
+			dataType : 'text',
+			type : 'post',
+			success : function(data) {
+				if (data == 1) {
+					username.style.cssText = "background-color:#FF9797";
+					$(function() {
+						$('#username').tipso({
+							useTitle : false
+						});
+					});
+					return false;
+				} else {
+					username.style.cssText = "background-color:#5cbdaa";
+					return true;
+				}
+			}
+		});
+	}
+
+	$(document).ready(function() {
+		$("#sub").click(function() {
+			var val = $('input:radio[name="sex"]:checked').val();
+			var count = 1;
+			if (!name123()) {
+				alert("name123");
+				count = 0;
+			} else if (!look()) {
+				alert("look");
+				count = 0;
+			} else if (!red()) {
+				alert("red");
+				count = 0;
+			} else if (!redname123()) {
+				alert("redname123");
+				count = 0;
+			} else if (!phone123()) {
+				alert("phone123");
+				count = 0;
+			} else if (!address) {
+				alert("address");
+				count = 0;
+			} else if (val == null) {
+				alert("sex");
+				count = 0;
+			}
+			if (count == 0) {
+				return false;
+			}
+		});
+	});
+</script>
+</html>

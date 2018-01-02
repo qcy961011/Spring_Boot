@@ -10,7 +10,7 @@ spring:
     username: qiao
     password: 123456
   thymeleaf:
-    prefix: /templates/  
+    prefix: /templates/
     suffix: .html
     mode: HTML5
     encoding: UTF-8
