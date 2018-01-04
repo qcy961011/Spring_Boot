@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mi.qiao</groupId>
-	<artifactId>Spring_Boot_Learning</artifactId>
+	<artifactId>Spring_Boot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Spring_Boot_Learning</name>
+	<name>Spring_Boot</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>

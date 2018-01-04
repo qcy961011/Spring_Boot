@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
+<head th:fragment="header">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>后台登录</title>
 <meta name="author" content="DeathGhost" />
-<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" th:href="@{/templates/login/css/style.css}" />
 <style>
 body {
 	height: 100%;
@@ -17,9 +17,9 @@ canvas {
 	position: absolute;
 }
 </style>
-<script src="js/jquery.js"></script>
-<script src="js/verificationNumbers.js"></script>
-<script src="js/Particleground.js"></script>
+<script th:src="@{/templates/login/js/jquery.js}"></script>
+<script th:src="@{/templates/login/js/verificationNumbers.js}"></script>
+<script th:src="@{/templates/login/js/Particleground.js}"></script>
 <script>
 	$(document).ready(function() {
 		//粒子背景特效

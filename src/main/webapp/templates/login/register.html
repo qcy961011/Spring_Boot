@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <title>后台登录</title>
 <meta name="author" content="DeathGhost" />
-<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" th:href="@{/templates/login/css/style.css}" />
 <style>
 body {
 	height: 100%;
@@ -17,10 +17,10 @@ canvas {
 	position: absolute;
 }
 </style>
-<script src="js/jquery.js"></script>
-<script src="js/verificationNumbers.js"></script>
-<script src="js/Particleground.js"></script>
-<link type="text/css" rel="stylesheet" href="css/tipso.min.css">
+<script th:src="@{/templates/login/js/jquery.js}"></script>
+<script th:src="@{/templates/login/js/verificationNumbers.js}"></script>
+<script th:src="@{/templates/login/js/Particleground.js}"></script>
+<link type="text/css" rel="stylesheet" th:href="@{/templates/login/css/tipso.min.css}">
 <style type="text/css">
 .tipbox .inner {
 	padding: 0px;
@@ -88,7 +88,7 @@ canvas {
 		</div>
 	</form>
 </body>
-<script type="text/javascript" src="js/tipso.min.js"></script>
+<script type="text/javascript" th:src="@{/templates/login/js/tipso.min.js}"></script>
 <script>
 	function name123() {
 		pas3 = document.getElementsByName('username')[0];
