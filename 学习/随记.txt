@@ -4,3 +4,11 @@ alter table bigdatastandarddata.citycorre add COLUMN id INT NOT NULL AUTO_INCREM
 
 JPA
 spring data jpa
+
+JNDI
+ Java 命名与目录接口（Java Naming and Directory Interface）
+ 
+ 
+ JSTL
+ JSTL（JavaServer Pages Standard Tag Library，JSP标准标签库)是一个不断完善的开放源代码的JSP标签库，是由apache的jakarta小组来维护的。JSTL只能运行在支持JSP1.2和Servlet2.3规范的容器上，如tomcat 4.x。在JSP 2.0中也是作为标准支持的。
+
