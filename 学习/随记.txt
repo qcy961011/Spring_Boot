@@ -12,3 +12,9 @@ JNDI
  JSTL
  JSTL（JavaServer Pages Standard Tag Library，JSP标准标签库)是一个不断完善的开放源代码的JSP标签库，是由apache的jakarta小组来维护的。JSTL只能运行在支持JSP1.2和Servlet2.3规范的容器上，如tomcat 4.x。在JSP 2.0中也是作为标准支持的。
 
+方法重写的原则
+方法的重写（override）两同两小一大原则：
+方法名相同，参数类型相同
+子类返回类型小于等于父类方法返回类型，
+子类抛出异常小于等于父类方法抛出异常，
+子类访问权限大于等于父类方法访问权限。
