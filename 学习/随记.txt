@@ -6,11 +6,11 @@ JPA
 spring data jpa
 
 JNDI
- Java 命名与目录接口（Java Naming and Directory Interface）
+Java 命名与目录接口（Java Naming and Directory Interface）
  
  
- JSTL
- JSTL（JavaServer Pages Standard Tag Library，JSP标准标签库)是一个不断完善的开放源代码的JSP标签库，是由apache的jakarta小组来维护的。JSTL只能运行在支持JSP1.2和Servlet2.3规范的容器上，如tomcat 4.x。在JSP 2.0中也是作为标准支持的。
+JSTL
+JSTL（JavaServer Pages Standard Tag Library，JSP标准标签库)是一个不断完善的开放源代码的JSP标签库，是由apache的jakarta小组来维护的。JSTL只能运行在支持JSP1.2和Servlet2.3规范的容器上，如tomcat 4.x。在JSP 2.0中也是作为标准支持的。
 
 方法重写的原则
 方法的重写（override）两同两小一大原则：
@@ -28,3 +28,99 @@ Struts   是MVC的一种实现，它将   Servlet和   JSP   标记（属于   J
 模 型：模型以一个或多个java   bean的形式存在。这些bean分为三类：Action   Form、Action、JavaBean   or   EJB。Action   Form通常称之为FormBean，封装了来自于Client的用户请求信息，如表单信息。Action通常称之为ActionBean，获取从 ActionSevlet传来的FormBean，取出FormBean中的相关信息，并做出相关的处理，一般是调用Java   Bean或EJB等。 
 流程：在Struts中，用户的请求一般以*.do作为请求服务名，所有的*.do请求均被指向 ActionSevlet，ActionSevlet根据Struts-config.xml中的配置信息，将用户请求封装成一个指定名称的 FormBean，并将此FormBean传至指定名称的ActionBean，由ActionBean完成相应的业务操作，如文件操作，数据库操作等。 每一个*.do均有对应的FormBean名称和ActionBean名称，这些在Struts-config.xml中配置。 
 核心：Struts的核心是ActionSevlet，ActionSevlet的核心是Struts-config.xml。
+
+对象和对象引用
+1.何谓对象？
+
+　　在Java中有一句比较流行的话，叫做“万物皆对象”，这是Java语言设计之初的理念之一。要理解什么是对象，需要跟类一起结合起来理解。下面这段话引自《Java编程思想》中的一段原话：
+
+　　“按照通俗的说法，每个对象都是某个类（class）的一个实例（instance），这里，‘类’就是‘类型’的同义词。”
+
+　　从这一句话就可以理解到对象的本质，简而言之，它就是类的实例，比如所有的人统称为“人类”，这里的“人类”就是一个类（物种的一种类型），而具体到每个人，比如张三这个人，它就是对象，就是“人类”的实例。
+
+
+2.何谓对象引用？
+
+　　我们先看一段话：
+
+　　“每种编程语言都有自己的数据处理方式。有些时候，程序员必须注意将要处理的数据是什么类型。你是直接操纵元素，还是用某种基于特殊语法的间接表示（例如C/C++里的指针）来操作对象。所有这些在 Java 里都得到了简化，一切都被视为对象。因此，我们可采用一种统一的语法。尽管将一切都“看作”对象，但操纵的标识符实际是指向一个对象的“引用”（reference）。”　　
+
+　　这段话来自于《Java编程思想》，很显然，从这段话可以看出对象和对象引用不是一回事，是两个完全不同的概念。举个例子，我们通常会用下面这一行代码来创建一个对象：
+
+
+Person person = new Person("张三");
+　　有人会说，这里的person是一个对象，是Person类的一个实例。
+
+　　也有人会说，这里的person并不是真正的对象，而是指向所创建的对象的引用。
+
+　　到底哪种说法是对的？我们先不急着纠结哪种说法是对的，再看两行代码：
+
+
+Person person;
+person = new Person("张三");
+　　这两行代码实现的功能和上面的一行代码是完全一样的。大家都知道，在Java中new是用来在堆上创建对象用的，如果person是一个对象的话，那么第二行为何还要通过new来创建对象呢？由此可见，person并不是所创建的对象，是什么？上面的一段话说的很清楚，“操纵的标识符实际是指向一个对象的引用”，也就是说person是一个引用，是指向一个可以指向Person类的对象的引用。真正创建对象的语句是右边的new Person("张三");
+
+　　再看一个例子：
+
+
+Person person;
+person = new Person("张三");
+person = new Person("李四");
+　　这里让person先指向了“张三”这个对象，然后又指向了“李四”这个对象。也就是说，Person person，这句话只是声明了一个Person类的引用，它可以指向任何Person类的实例。这个道理就和下面这段代码一样：
+
+int a;
+a=2;
+a=3;
+　　这里先声明了一个int类型的变量a，先对a赋值为2，后面又赋值为3.也就是说int类型的变量a，可以让它的值为2，也可以为3，只要是合法的int类型的数值即可。
+
+　　也就是说，一个引用可以指向多个对象，而一个对象可不可以被多个引用所指呢？答案当然是可以的。
+
+　　比如：
+
+Person person1 = new Person("张三");
+Person person2 = person1;
+　　person1和person2都指向了“张三”这个对象。
+
+
+
+守护线程
+
+待查询
+
+
+
+面向对象的五大基本原则
+单一职责原则（SRP）
+开放封闭原则（OCP）
+里氏替换原则（LSP）
+依赖倒置原则（DIP）
+接口隔离原则（ISP）
+
+单一职责原则（SRP）
+ 一个类应该仅有一个引起它变化的原因(最简单，最容易理解却最不容易做到的一个设计原则)
+
+开放封闭原则（OCP）
+• 既开放又封闭，对扩展是开放的，对更改是封闭的！
+• 扩展即扩展现行的模块，当我们软件的实际应用发生改变时，出现新的需求，就需要我们对模块进行扩展，使其能够满足新的需求！
+
+里氏替换原则（LSP）
+• 子类可以替换父类并且出现在父类能够出现的任何地方
+• 这个原则也是在贯彻GOF倡导的面向接口编程！
+
+依赖倒置原则（DIP）
+• 传统的结构化编程中，最上层的模块通常都要依赖下面的子模块来实现，也称为高层依赖低层！
+
+接口隔离原则（ISP）
+• 这个原则的意思是：使用多个专门的接口比使用单个接口要好的多！
+
+
+
+
+
+
+
+
+
+
+
+
