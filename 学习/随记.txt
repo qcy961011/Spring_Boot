@@ -1,7 +1,4 @@
 
-给表添加主键列
-alter table bigdatastandarddata.citycorre add COLUMN id INT NOT NULL AUTO_INCREMENT PRIMARY KEY first;
-
 JPA
 spring data jpa
 
@@ -130,9 +127,7 @@ AOP(面向切面编程，Aspect Oriented Programming)
 编译，从而在编译阶段就可生成 AOP 代理类，因此也称为编译时增强；而动态代理则
 在运行时借助于 JDK 动态代理、CGLIB 等在内存中"临时"生成 AOP 动态代理类，
 因此也被称为运行时增强。
-
-
-
+(如果把项目功能实现作为一个水管，OOP的目的就是水管中流动的水，AOP的目的就是在水管中的某个位置设置的过滤，经过AOP就会触发AOP的实现)
 
 
 

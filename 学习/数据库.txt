@@ -1,0 +1,72 @@
+
+给表添加主键列
+alter table bigdatastandarddata.citycorre add COLUMN id INT NOT NULL AUTO_INCREMENT PRIMARY KEY first;
+
+增
+insert into table_name(字段1，字段2) values(值1，值2)
+
+删
+delete from table_name where 字段 = 值
+
+改
+update table_name set 字段 = ? where 条件
+
+查
+select * from table_name
+查唯一
+select distinct 字段 from table_name
+
+
+排序order by(升序)
+select * from talbe_name order by 字段
+
+排序order by(降序)
+select * from table_name order by 字段 desc
+
+AND OR 使用
+SELECT * FROM Persons WHERE FirstName='Thomas' AND LastName='Carter'
+SELECT * FROM Persons WHERE firstname='Thomas' OR lastname='Carter'
+SELECT * FROM Persons WHERE (FirstName='Thomas' OR FirstName='William') AND LastName='Carter'
+
+TOP (用于分页)
+SQL Server:
+SELECT TOP number|percent column_name(s) FROM table_name
+MySQL:
+select * from table_name LIMIT n , m 
+Oracle:
+SELECT * FROM (SELECT A.*, ROWNUM RN FROM (SELECT * FROM TABLE_NAME) A  WHERE ROWNUM <= 40) WHERE RN >= 21  
+
+LIKE(条件查询)
+select * from users where realName like 'N%'     (查询满足字段数据由N开头的数据)
+select * from users where realName like '%G'	 (查询满足字段数据由G结尾的数据)
+select * from users where realName like '%lond%' (查询满足字段数据中有lond的数据)
+select * from users where realName like 'A_M'	 (查询满足字段数据A(缺少一个字符)M的数据)
+select * from users where realName like '[ALN]%' (查询满足字段数据由A或L或N开头的数据)
+select * from users where realName like '[!ALN]%'(查询满足字段数据不由A或L或N开头的数据)
+
+IN(条件查询)
+select * from users where realName IN ('value1','value2') (查询满足字段数据为这两个值的数据)
+
+BETWEEN(介于两个值之间)
+select * from users where realName 
+
+
+
+左连接(顾左不顾右)
+SELECT * from grid LEFT JOIN links ON grid.ID = links.grid_id
+
+右连接(顾右不顾左)
+SELECT * from grid RIGHT JOIN links ON grid.ID = links.grid_id LIMIT 0 , 20
+
+内连接(两个都不顾)
+SELECT * from grid INNER JOIN links ON grid.ID = links.grid_id LIMIT 0 , 20
+
+完全链接(两个都兼顾)
+SELECT * from grid FULL JOIN links ON grid.ID = links.grid_id LIMIT 0 , 20
+
+
+
+
+
+
+
