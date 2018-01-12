@@ -7,19 +7,14 @@ import org.springframework.stereotype.Component;
 import com.mi.qiao.entity.User;
 
 @Component
-public interface UserService {
-
-	int deleteByPrimaryKey(Integer id);
-
-	int insert(User record);
-
-	int insertSelective(User record);
-
-	List<User> selectAll();
+public interface UserService{
+	public int deleteByPrimaryKey(Integer id) ;
+	public int insert(User record);
+	public int insertSelective(User record) ;
+	public User selectByPrimaryKey(Integer id);
+	public int updateByPrimaryKeySelective(User record);
+	public int updateByPrimaryKey(User record);
+	public List<User> selectAll();
 	
-	User selectByPrimaryKey(Integer id);
 
-	int updateByPrimaryKeySelective(User record);
-
-	int updateByPrimaryKey(User record);
 }
