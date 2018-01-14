@@ -110,6 +110,14 @@ Person person2 = person1;
 接口隔离原则（ISP）
 • 这个原则的意思是：使用多个专门的接口比使用单个接口要好的多！
 
+设计模式的六大设计原则:
+单一职责原则（SRP）
+开放封闭原则（OCP）
+里氏替换原则（LSP）
+依赖倒置原则（DIP）
+接口隔离原则（ISP）
+最少知道原则（Least Knowledge Principle,LKP）(PS:又称迪米特法则)
+
 
 IoC
 Spring 框架中最常见的原理之一
@@ -130,5 +138,5 @@ AOP(面向切面编程，Aspect Oriented Programming)
 (如果把项目功能实现作为一个水管，OOP的目的就是水管中流动的水，AOP的目的就是在水管中的某个位置设置的过滤，经过AOP就会触发AOP的实现)
 
 
-
+OCP 原则
 
