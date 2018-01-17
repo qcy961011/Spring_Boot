@@ -66,6 +66,30 @@ SELECT * from grid FULL JOIN links ON grid.ID = links.grid_id LIMIT 0 , 20
 
 
 
+多表联查加速查询
+快速方式：
+SELECT
+	link
+FROM
+	links l
+WHERE
+	l.grid_id = (
+		SELECT
+			g.ID
+		FROM
+			grid g
+		WHERE
+			g.NAMECN = '清华大学'
+	)
+
+慢速方式：
+SELECT
+	link
+FROM
+	links
+LEFT JOIN grid ON links.grid_id = grid.ID
+WHERE
+	grid.NAMECN = '清华大学'
 
 
 
