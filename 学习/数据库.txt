@@ -67,6 +67,7 @@ SELECT * from grid FULL JOIN links ON grid.ID = links.grid_id LIMIT 0 , 20
 
 
 多表联查加速查询
+http://blog.csdn.net/xlgen157387/article/details/44156679
 快速方式：
 SELECT
 	link
