@@ -93,5 +93,27 @@ WHERE
 	grid.NAMECN = '清华大学'
 
 
-
+行转列
+SELECT
+	Date/* 这个是一个字段名 */,
+	MAX(
+		CASE Names/* 这个是一个字段名 */
+		WHEN '小说'/*这个是需要转列的字段数据*/ THEN
+			Scount/* 这个是一个字段名 */
+		ELSE
+			0
+		END
+	) 小说,
+	MAX(
+		CASE Names
+		WHEN '微信' THEN
+			Scount
+		ELSE
+			0
+		END
+	) 微信
+FROM
+	TabName
+GROUP BY
+	Date;
 
