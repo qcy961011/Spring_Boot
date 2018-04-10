@@ -1,4 +1,11 @@
 
+
+数据库设计的三大范式：
+第一范式：数据库表中的所有字段值都是不可分解的原子值。（确保每列保持原子性）
+第二范式：数据库表中的每一列都和主键相关，而不能只与主键的某一部分相关。（确保表中的每列都是和主键相关）
+第三范式：数据库表中的每一列数据都是和主键直接相关，而不能间接相关。（确保每列都和主键列直接相关，而不是间接相关）
+
+
 给表添加主键列
 alter table bigdatastandarddata.citycorre add COLUMN id INT NOT NULL AUTO_INCREMENT PRIMARY KEY first;
 
